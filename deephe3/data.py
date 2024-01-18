@@ -86,7 +86,7 @@ raw_data_dir
         if os.path.exists(self.data_file):
             print('Use existing graph data file')
         else:
-            assert raw_data_dir, 'Required graph does not exist, or graph filename cannot be correctly identified'
+            # assert raw_data_dir, 'Required graph does not exist, or graph filename cannot be correctly identified'
             print('Process new data file......')
             self.process()
         if load_graph:

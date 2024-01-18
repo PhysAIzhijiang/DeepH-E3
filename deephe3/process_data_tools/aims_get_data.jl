@@ -1,0 +1,1 @@
+/sharedata01/shengbi/workspace/sciCode/fhiaims_ext_notb/scripts/NoTB_diag/aims_get_data.jl

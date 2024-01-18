@@ -360,6 +360,12 @@ function get_data(filepath_scfout::String, Rcut::Float64; if_DM::Bool = false)
         @assert if_DM == false
         density_matrixs = nothing
         spinful = true
+        # In openMX, for SpinP_switch=3, the matrix elements are given by 
+        # up-up:       Hks[1] + I*iHks[1] 
+        # up-down:     Hks[3] + I*(Hks[4]+iHks[3]) 
+        # down-up:     Hks[3] - I*(Hks[4]+iHks[3]) 
+        # down-down:   Hks[2] + I*iHks[2] 
+        # Here we reset Hk[4] by Hks[4]+iHks[3], and  iHk[3] by -(Hks[4]+iHks[3])
         for i in 1:length(Hk[4]),j in 1:length(Hk[4][i])
             Hk[4][i][j] += iHk[3][i][j]
             iHk[3][i][j] = -Hk[4][i][j]
